@@ -117,7 +117,7 @@ module Inspec
     #
     # @param [Type] &block returns true if tests are added, false otherwise
     # @return [nil]
-    def only_if(message=nil)
+    def only_if(message = nil)
       return unless block_given?
       return if @__skip_only_if_eval == true
 
@@ -175,7 +175,7 @@ module Inspec
     end
 
     def self.set_skip_rule(rule, value)
-      rule.instance_variable_set(:@__skip_rule, value)
+      rule.instance_variable_set(:@__skip_rule, { result: value })
     end
 
     def self.merge_count(rule)
